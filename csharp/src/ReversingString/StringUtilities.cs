@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections;
+using System.Text;
 
 namespace CodingChallenge.ReversingString
 {
@@ -6,7 +7,29 @@ namespace CodingChallenge.ReversingString
     {
         public static string Reverse(string s)
         {
-            throw new NotImplementedException();
+            var stackOfChars = new Stack();
+            var str = new StringBuilder();
+
+            PushCharsOnStack(s, stackOfChars);
+            RemoveCharsFromStackInReverseOrder(stackOfChars, str);
+
+            return str.ToString();
+        }
+
+        private static void RemoveCharsFromStackInReverseOrder(Stack stackOfChars, StringBuilder str)
+        {
+            while (stackOfChars.Count != 0)
+            {
+                str.Append(stackOfChars.Pop());
+            }
+        }
+
+        private static void PushCharsOnStack(string s, Stack stackOfChars)
+        {
+            foreach (var ch in s.ToCharArray())
+            {
+                stackOfChars.Push(ch);
+            }
         }
     }
 }
