@@ -22,6 +22,7 @@ namespace CodingChallenge.CardGame
 
 
         // If implementing Equals for IEquatable then should override Equals and Hashcode
+        // Note: Not overriding the == and != operators in this case since Equals is sufficient for this example.
 
         public override bool Equals(Object obj)
         {
